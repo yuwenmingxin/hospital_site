@@ -10,7 +10,7 @@
     <!-- 搜索 -->
     <div class="search-container">
       <div class="search-wrapper">
-        <!-- <div class="hospital-search">
+        <div class="hospital-search">
           <el-autocomplete
             class="search-input"
             prefix-icon="el-icon-search"
@@ -22,7 +22,7 @@
           >
             <span slot="suffix" class="search-btn v-link highlight clickable selected">搜索 </span>
           </el-autocomplete>
-        </div> -->
+        </div>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
       <div class="left">
         <div class="home-filter-wrapper">
           <div class="title"> 医院</div>
-          <!-- <div>
+          <div>
             <div class="filter-wrapper">
               <span class="label">等级：</span>
               <div class="condition-wrapper">
@@ -44,9 +44,9 @@
                 <span class="item v-link clickable" :class="provinceActiveIndex == index ? 'selected' : ''" v-for="(item,index) in districtList" :key="item.id" @click="districtSelect(item.value, index)">{{ item.name }}</span>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
-        <!-- <div class="v-scroll-list hospital-list">
+        <div class="v-scroll-list hospital-list">
           <div class="v-card clickable list-item" v-for="item in list" :key="item.id">
             <div class="">
               <div class="hospital-list-item hos-item" index="0" @click="show(item.hoscode)">
@@ -65,7 +65,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <div class="right">
         <div class="common-dept">
@@ -148,7 +148,7 @@
   </div>
 </template>
 
-<!-- <script>
+<script>
 import hospitalApi from '@/api/hosp/hospital'
 import dictApi from '@/api/cmn/dict'
 export default {
@@ -273,4 +273,4 @@ export default {
   }
 }
 </script>
- -->
+

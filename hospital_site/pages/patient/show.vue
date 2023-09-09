@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 
   <!-- header -->
   <div class="nav-container page-component">
@@ -146,4 +146,4 @@ export default {
   .bottom-wrapper .button-wrapper {
     margin-top: 0;
   }
-</style>
+</style> -->
