@@ -5,7 +5,7 @@ const api_name = `/api/hosp/hospital`
 export default {
   getPageList(page, limit, searchObj) {
     return request({
-      url: `${api_name}/${page}/${limit}`,
+      url: `${api_name}/findHospList/${page}/${limit}`,
       method: 'get',
       params: searchObj
     })
@@ -18,19 +18,35 @@ export default {
     })
   },
 
-  show(hoscode) {
+
+
+
+  getHospitalInfo(hoscode) {
     return request({
-      url: `${api_name}/${hoscode}`,
+      url: `${api_name}/findHospDetail/${hoscode}`,
       method: 'get'
     })
   },
-
+  
   findDepartment(hoscode) {
     return request({
       url: `${api_name}/department/${hoscode}`,
       method: 'get'
     })
   },
+
+  
+
+  getSchedule(id) {
+    return request({
+      url: `${api_name}/getSchedule/${id}`,
+      method: 'get'
+    })
+  },
+
+ 
+
+
 
   getBookingScheduleRule(page, limit, hoscode, depcode) {
     return request({
@@ -46,33 +62,20 @@ export default {
     })
   },
 
-  getSchedule(id) {
+  
+  getBookingScheduleRule(page, limit, hoscode, depcode) {
     return request({
-      url: `${api_name}/getSchedule/${id}`,
+      url: `${api_name}/auth/getBookingScheduleRule/${page}/${limit}/${hoscode}/${depcode}`,
       method: 'get'
     })
-  }
-
-  // getHospitalInfo(hoscode) {
-  //   return request({
-  //     url: `${api_name}/getHospitalInfo/${hoscode}`,
-  //     method: 'get'
-  //   })
-  // },
-  //
-  // getBookingScheduleRule(page, limit, hoscode, depcode) {
-  //   return request({
-  //     url: `${api_name}/auth/getBookingScheduleRule/${page}/${limit}/${hoscode}/${depcode}`,
-  //     method: 'get'
-  //   })
-  // },
-  //
-  // findScheduleList(hoscode, depcode, workDate) {
-  //   return request({
-  //     url: `${api_name}/auth/findScheduleList/${hoscode}/${depcode}/${workDate}`,
-  //     method: 'get'
-  //   })
-  // },
-  //
+  },
+  
+  findScheduleList(hoscode, depcode, workDate) {
+    return request({
+      url: `${api_name}/auth/findScheduleList/${hoscode}/${depcode}/${workDate}`,
+      method: 'get'
+    })
+  },
+  
 
 }

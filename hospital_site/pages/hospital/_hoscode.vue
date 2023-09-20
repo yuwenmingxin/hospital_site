@@ -121,7 +121,7 @@ export default {
 
   methods: {
     init() {
-      hospitalApi.show(this.hoscode).then(response => {
+      hospitalApi.getHospitalInfo(this.hoscode).then(response => {
         this.hospital = response.data.hospital
         this.bookingRule = response.data.bookingRule
       })

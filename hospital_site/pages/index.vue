@@ -151,10 +151,13 @@
 <script>
 import hospitalApi from '@/api/hosp/hospital'
 import dictApi from '@/api/cmn/dict'
+
 export default {
+
   // asyncData：渲染组件之前异步获取数据
   asyncData({ params, error }) {
-    return hospitalApi.getPageList(1, 10, null).then(response => {
+    return hospitalApi.getPageList(1, 10, null)
+    .then(response => {
       console.log(response.data);
       return {
         list: response.data.content,
@@ -162,6 +165,7 @@ export default {
       }
     });
   },
+
   data() {
     return {
       searchObj: {},
@@ -236,21 +240,6 @@ export default {
       })
     },
 
-    querySearchAsync(queryString, cb) {
-      this.searchObj = []
-      if(queryString == '') return
-      hospitalApi.getByHosname(queryString).then(response => {
-        for (let i = 0, len = response.data.length; i < len; i++) {
-          response.data[i].value = response.data[i].hosname
-        }
-        cb(response.data)
-      })
-    },
-
-    handleSelect(item) {
-      window.location.href = '/hospital/' + item.hoscode
-    },
-
     hostypeSelect(hostype, index) {
       this.list = []
       this.page = 1
@@ -265,6 +254,21 @@ export default {
       this.provinceActiveIndex = index
       this.searchObj.districtCode = districtCode
       this.getList();
+    },
+
+    querySearchAsync(queryString, cb) {
+      this.searchObj = []
+      if(queryString == '') return
+      hospitalApi.getByHosname(queryString).then(response => {
+        for (let i = 0, len = response.data.length; i < len; i++) {
+          response.data[i].value = response.data[i].hosname
+        }
+        cb(response.data)
+      })
+    },
+
+    handleSelect(item) {
+      window.location.href = '/hospital/' + item.hoscode
     },
 
     show(hoscode) {
